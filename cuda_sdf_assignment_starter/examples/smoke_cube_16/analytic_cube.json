@@ -1,0 +1,7 @@
+{
+  "reference": "analytic axis-aligned cube",
+  "mae": 7.710238064560028e-09,
+  "max_error": 2.9307305804415762e-08,
+  "rmse": 1.0585071832414114e-08,
+  "sign_error_fraction_away_from_surface": 0.0
+}

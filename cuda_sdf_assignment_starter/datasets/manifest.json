@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "description": "All OBJ faces are triangles. Each sample is a GRID NODE origin + dx*(i,j,k).",
+  "cases": [
+    {
+      "id": "smoke_cube_16",
+      "mesh": "obj/cube.obj",
+      "grid": "configs/grid_16.grid",
+      "class": "smoke"
+    },
+    {
+      "id": "cube_32",
+      "mesh": "obj/cube.obj",
+      "grid": "configs/grid_32.grid",
+      "class": "public"
+    },
+    {
+      "id": "sphere_32",
+      "mesh": "obj/icosphere_L1.obj",
+      "grid": "configs/grid_32.grid",
+      "class": "public"
+    },
+    {
+      "id": "sphere_64",
+      "mesh": "obj/icosphere_L2.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "public"
+    },
+    {
+      "id": "two_cubes_64",
+      "mesh": "obj/two_cubes.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "public"
+    },
+    {
+      "id": "torus_64",
+      "mesh": "obj/torus.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "public"
+    },
+    {
+      "id": "deform_000_64",
+      "mesh": "obj/deform_000.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "dynamic"
+    },
+    {
+      "id": "deform_001_64",
+      "mesh": "obj/deform_001.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "dynamic"
+    },
+    {
+      "id": "deform_002_64",
+      "mesh": "obj/deform_002.obj",
+      "grid": "configs/grid_64.grid",
+      "class": "dynamic"
+    },
+    {
+      "id": "sphere_128",
+      "mesh": "obj/icosphere_L3.obj",
+      "grid": "configs/grid_128.grid",
+      "class": "stress_optional"
+    }
+  ],
+  "assignment_note": "Static SDF is required. Dynamic frames are optional bonus only. The public validation gates are provisional; final grading uses a separate trusted process."
+}

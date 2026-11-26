@@ -1,0 +1,13 @@
+build/
+build-*/
+out/
+results/
+*.obj
+!datasets/obj/*.obj
+__pycache__/
+*.pyc
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
