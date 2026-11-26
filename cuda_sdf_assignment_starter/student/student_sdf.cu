@@ -88,8 +88,9 @@ __global__ void sdf_bruteforce(const float* __restrict__ vertices,
         const float ax=vertices[ia], ay=vertices[ia+1], az=vertices[ia+2];
         const float bx=vertices[ib], by=vertices[ib+1], bz=vertices[ib+2];
         const float cx=vertices[ic], cy=vertices[ic+1], cz=vertices[ic+2];
-        // Conservative point-to-AABB lower bound: avoid the more expensive
-        // closest-point region calculation when this triangle cannot win.
+        // Optimization 1: conservative point-to-AABB lower bound avoids the
+        // more expensive closest-point region calculation when it cannot win.
+#ifndef SDF_DISABLE_AABB_PRUNE
         const float dx=fmaxf(fminf(fminf(ax,bx),cx)-px, 0.f);
         const float dy=fmaxf(fminf(fminf(ay,by),cy)-py, 0.f);
         const float dz=fmaxf(fminf(fminf(az,bz),cz)-pz, 0.f);
@@ -100,6 +101,16 @@ __global__ void sdf_bruteforce(const float* __restrict__ vertices,
             const float d2=point_triangle_distance2(px,py,pz,ax,ay,az,bx,by,bz,cx,cy,cz);
             best=fminf(best,d2);
         }
+#else
+        const float d2=point_triangle_distance2(px,py,pz,ax,ay,az,bx,by,bz,cx,cy,cz);
+        best=fminf(best,d2);
+#endif
+        // Optimization 2: reject ray tests outside the triangle's projected
+        // YZ bounds before barycentric evaluation. This cannot remove a hit.
+#ifndef SDF_DISABLE_RAY_AABB
+        if (ry < fminf(fminf(ay,by),cy) || ry > fmaxf(fmaxf(ay,by),cy) ||
+            rz < fminf(fminf(az,bz),cz) || rz > fmaxf(fmaxf(az,bz),cz)) continue;
+#endif
         float hx;
         if (ray_hit_x(ry,rz,ax,ay,az,bx,by,bz,cx,cy,cz,hx) && hx > px) ++crossings;
     }

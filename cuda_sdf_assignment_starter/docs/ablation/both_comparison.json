@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "reference": "/opt/huawei/explorer-env/dataset/yyh_arcagi/HomeWork/cuda-homework/cuda_sdf_assignment_starter/results/ablation_both/torus_64/cpu.sdf",
+  "candidate": "/opt/huawei/explorer-env/dataset/yyh_arcagi/HomeWork/cuda-homework/cuda_sdf_assignment_starter/results/ablation_both/torus_64/gpu.sdf",
+  "resolution": [
+    64,
+    64,
+    64
+  ],
+  "spacing": 0.031746031746031744,
+  "samples": 262144,
+  "finite": true,
+  "mae": 7.639355616266283e-07,
+  "rmse": 1.9107704669443682e-05,
+  "max_error": 0.0006968669999999899,
+  "p95_error": 1.7899999993353788e-07,
+  "bad_fraction": 0.0,
+  "sign_error_fraction": 0.0,
+  "sign_tested_samples": 259880,
+  "passed": true,
+  "tolerances": {
+    "abs_tol_dx": 0.1,
+    "rel_tol": 0.0001,
+    "max_bad_fraction": 0.01,
+    "max_sign_fraction": 0.005,
+    "sign_ignore_dx": 0.25
+  },
+  "warning": "PROVISIONAL only: CPU baseline is approximate. This CPU comparison is not a stand-alone final grading oracle; also use analytic/independent exact and hidden tests."
+}

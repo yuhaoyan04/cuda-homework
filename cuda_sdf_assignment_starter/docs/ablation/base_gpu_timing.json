@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "implementation": "gpu_student",
+  "status": "EXECUTED_UNVERIFIED",
+  "detail": "GPU CUDA event time excludes initial H2D copies and output D2H copy; run verifier separately",
+  "vertices": 512,
+  "triangles": 1024,
+  "resolution": [64, 64, 64],
+  "median_ms": 1.58614397049,
+  "times_ms": [1.5901119709, 1.58640003204, 1.58188796043, 1.58614397049, 1.58575999737]
+}
